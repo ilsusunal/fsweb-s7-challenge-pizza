@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import PaymentButtons from './PaymentButtons';
+import '../App.css'
 
 export default function OrderPizza() {
     const [form, setForm] = useState([]);
@@ -13,11 +15,11 @@ export default function OrderPizza() {
     Kanada Jambonu, Tavuk Izgara, Soğan, domates, Mısır, Sucuk, Jalepeno, Sarımsak, Biber, Ananas, Kabak)
     5. Input (Sipariş Notu (placeholder="Siparişine eklemek istediğin bir not var mı?")) 
     6. Ayırıcı çizgi?
-    7. Ödeme bölümü*/
+    7. Ödeme bölümü -Miktar  - Sipariş ver butonu*/
     return (
         <Form>
           {/* Pizza boyutu */}
-        <FormGroup tag="fieldset">
+        <FormGroup>
         <legend>
           Boyut Seç*
         </legend>
@@ -144,18 +146,32 @@ export default function OrderPizza() {
             Kabak
           </Label>
         </FormGroup>
+        {/* İsim - Soyisim */}
+        <FormGroup>
+          <Label for="name">
+              İsim-Soyisim
+            </Label>
+            <Input
+              id="name"
+              name="name"
+              placeholder="Lütfen isminizi girin."
+              type="text"
+            />
+        </FormGroup>
         {/* Sipariş notu */}
         <FormGroup>
-        <Label for="siparisNotu">
-          Sipariş Notu
-        </Label>
-        <Input
-          id="siparisNotu"
-          name="siparisNotu"
-          placeholder="Siparişine eklemek istediğin bir not var mı?"
-          type="text"
-        />
+          <Label for="siparisNotu">
+            Sipariş Notu
+          </Label>
+          <Input
+            id="siparisNotu"
+            name="siparisNotu"
+            placeholder="Siparişine eklemek istediğin bir not var mı?"
+            type="text"
+          />
         </FormGroup>
+        {/* Sipariş Miktarı */}
+        <PaymentButtons/>
         </Form>
     )
     
