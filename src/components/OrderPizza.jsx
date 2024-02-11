@@ -1,11 +1,31 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useHistory} from 'react';
 import axios from "axios";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import PaymentButtons from './PaymentButtons';
 import '../App.css'
 
+const initialData = {
+  isim: "",
+  boyut: "",
+  malzemeler: [],
+  özel: "",
+}
+const errorMessages = {
+  checkbox1 : "En az 4 tane malzeme seçmelisiniz!",
+  checkbox2 : "En fazla 10 tane malzeme seçmebilirsiniz!",
+  isim: "İsim en az 3 karakter içermelidir.",
+  boyut: "Pizzanızın boyutunu seçin.",
+}
 export default function OrderPizza() {
-    const [form, setForm] = useState([]);
+    const [form, setForm] = useState(initialData);
+    const [errors, setErrors] = useState(initialData);
+    
+    const handleChange = (event) => {
+      let { name, value, type } = event.target;
+      setForm({ ...form, [name]: value });
+      
+    }
+
 
     /*Form içeriği:
     1.Fiyat - puan - yorum sayısı 
@@ -27,6 +47,7 @@ export default function OrderPizza() {
           <Input
             name="radio1"
             type="radio"
+            value={form}
           />
           {' '}
           <Label check>
