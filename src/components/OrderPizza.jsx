@@ -1,8 +1,8 @@
-import React, {useEffect, useState, useHistory} from 'react';
-import {Switch, Route} from "react-router-dom";
+import React, {useEffect, useState} from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from "axios";
 import { Form, FormGroup, Label, Input, Button, FormText, FormFeedback } from 'reactstrap';
-
+import LogoSVG  from "../../Assets/mile1-assets/logo.svg";
 
 const initialData = {
   isimSoyisim: "",
@@ -24,6 +24,9 @@ export default function OrderPizza() {
     const [errors, setErrors] = useState(initialData);
     const [isValid, setIsValid] = useState(false);
     const [count, setCount] = useState(1);
+
+    const history = useHistory();
+
 
       /* "form" her güncellendiğinde "validateForm()" fonksiyonunu çalıştır/ doğrulama yapar. */
     useEffect(() => {
@@ -92,12 +95,16 @@ export default function OrderPizza() {
         });
     };
 
+    const handleClick = () => {
+      history.push("/siparis-alindi")
+    }
+
     return (
       <>
       <header className='form-header'>
-        <h1>Teknolojik Yemekler</h1>
+        <img src={LogoSVG} alt="Logo" />
         <nav className='nav-menu'>
-          <a href="/anasayfa">Anasayfa</a>
+          <a href="/">Anasayfa</a>
           <p> - </p>
           <a href="/secenekler">Seçenekler</a>
           <p> - </p>
@@ -251,7 +258,7 @@ export default function OrderPizza() {
               <h2>Sipariş Toplamı</h2>
               <div><p>Seçimler</p>  <p>{form.malzemeler.length * 5}</p></div>
               <div><p>Toplam</p>  <p>{(85.5 * count) + (form.malzemeler.length * 5)}</p></div>
-              <Button size="lg" type='submit' disabled={!isValid}>SİPARİŞ VER</Button>
+              <Button onClick={handleClick} size="lg" type='submit' disabled={!isValid}>SİPARİŞ VER</Button>
             </div>
           </footer>
       </Form>

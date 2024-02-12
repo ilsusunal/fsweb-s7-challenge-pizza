@@ -134,3 +134,22 @@ button:hover {
 #anasayfa-buton{
   width: 100px;
 }
+.main-title {
+  font-family: Roboto Condensed;
+  font-size: 86px;
+  display: flex;
+  justify-content: center;
+  
+}
+.success-page{
+  background-color: #CE2829;
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.success-page img {
+ margin: 115px;
+}
