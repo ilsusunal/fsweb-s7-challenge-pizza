@@ -93,8 +93,18 @@ export default function OrderPizza() {
     };
 
     return (
-
-        <Form className="order-pizza-form" onSubmit={handleSubmit}>
+      <>
+      <header className='form-header'>
+        <h1>Teknolojik Yemekler</h1>
+        <nav className='nav-menu'>
+          <a href="/anasayfa">Anasayfa</a>
+          <p> - </p>
+          <a href="/secenekler">Seçenekler</a>
+          <p> - </p>
+          <a href="/siparis-olustur">Sipariş Oluştur</a>
+        </nav>
+      </header>
+      <Form className="order-pizza-form" onSubmit={handleSubmit}>
           {/*Pizza Info*/}
           <h2>Position Absolute Acı Pizza</h2>
           <div>
@@ -103,107 +113,107 @@ export default function OrderPizza() {
               <p>4.9</p>
               <p>(200)</p>
             </div>
-            <p>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</p> 
+            <p>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</p>
           </div>
           <div className="form-group-row">
-           {/* Pizza boyutu */} 
-           <FormGroup >
-            <Label>
-              Boyut Seç*
-            </Label>
-            <FormGroup check>
-              <Input
-                name="boyut"
-                type="radio"
-                value="kucuk"
-                onChange={handleChange}/>
-              {' '}
-              <Label check>
-                Küçük
+            {/* Pizza boyutu */}
+            <FormGroup>
+              <Label>
+                Boyut Seç*
               </Label>
+              <FormGroup check>
+                <Input
+                  name="boyut"
+                  type="radio"
+                  value="kucuk"
+                  onChange={handleChange} />
+                {' '}
+                <Label check>
+                  Küçük
+                </Label>
+              </FormGroup>
+              <FormGroup check>
+                <Input
+                  name="boyut"
+                  type="radio"
+                  value="orta"
+                  onChange={handleChange} />
+                {' '}
+                <Label check>
+                  Orta
+                </Label>
+              </FormGroup>
+              <FormGroup check>
+                <Input
+                  name="boyut"
+                  type="radio"
+                  value="bucuk"
+                  onChange={handleChange} />
+                {' '}
+                <Label check>
+                  Büyük
+                </Label> {errors.boyut && <FormFeedback>{errorMessages.boyut}</FormFeedback>}
+              </FormGroup>
             </FormGroup>
-            <FormGroup check>
-              <Input
-                name="boyut"
-                type="radio"
-                value="orta"
-                onChange={handleChange} />
-              {' '}
-              <Label check>
-                Orta
+            {/* Hamur kalınlığı */}
+            <FormGroup>
+              <Label for="hamurKalınlıgı">
+                Hamur Seç*
               </Label>
-            </FormGroup>
-            <FormGroup check>
               <Input
-                name="boyut"
-                type="radio"
-                value="bucuk"
-                onChange={handleChange} />
-              {' '}
-              <Label check>
-                Büyük
-              </Label> {errors.boyut && <FormFeedback>{errorMessages.boyut}</FormFeedback>}
+                id="hamurKalınlıgı"
+                name="hamur"
+                type="select"
+                onChange={handleChange}
+              >
+                <option value="">- Hamur Kalınlığı Seç -</option>
+                <option value="Süpper İnce">Süpper İnce</option>
+                <option value="İnce">İnce</option>
+                <option value="Orta">Orta</option>
+                <option value="Kalın">Kalın</option>
+              </Input> {errors.hamur && <FormFeedback>{errorMessages.hamur}</FormFeedback>}
             </FormGroup>
-          </FormGroup>
-          {/* Hamur kalınlığı */}
-          <FormGroup>
-            <Label for="hamurKalınlıgı">
-              Hamur Seç*
-            </Label>
-            <Input
-              id="hamurKalınlıgı"
-              name="hamur"
-              type="select"
-              onChange={handleChange}
-            >
-              <option value="">- Hamur Kalınlığı Seç -</option>
-              <option value="Süpper İnce">Süpper İnce</option>
-              <option value="İnce">İnce</option>
-              <option value="Orta">Orta</option>
-              <option value="Kalın">Kalın</option>
-            </Input> {errors.hamur && <FormFeedback>{errorMessages.hamur}</FormFeedback>}
-          </FormGroup>
           </div>
           <div className='ekMalzemeler'>
-           {/*Ek malzemeler*/}
-          <FormGroup
-            check
-            inline 
-          >
-            <Label for="ekMalzemeler">
-              Ek Malzemeler
-            </Label>
-            <FormText htmlFor="ekMalzemeler">
-              En az 4, en fazla 10 malzeme seçebilirsiniz. Malzeme başı 5 tl ek ücret.
-            </FormText> <br />
-            <Input type="checkbox" onChange={handleChange} name='Pepperoni'/>
-            <Label check>Pepperoni</Label>
-            <Input type="checkbox" onChange={handleChange} name='Sosis'/>
-            <Label check>Sosis</Label> 
-            <Input type="checkbox" onChange={handleChange} name='Kanada Jambonu'/>
-            <Label check>Kanada Jambonu</Label> <br />
-            <Input type="checkbox" onChange={handleChange} name='Tavuk Izgara'/>
-            <Label check>Tavuk Izgara</Label> 
-            <Input type="checkbox" onChange={handleChange} name='Soğan'/>
-            <Label check>Soğan</Label>
-            <Input type="checkbox"onChange={handleChange} name='Domates' />
-            <Label check>Domates</Label>  <br />
-            <Input type="checkbox" onChange={handleChange} name='Mısır'/>
-            <Label check>Mısır</Label>
-            <Input type="checkbox" onChange={handleChange} name='Sucuk'/>
-            <Label check>Sucuk</Label> 
-            <Input type="checkbox" onChange={handleChange} name='Jalepeno'/>
-            <Label check>Jalepeno</Label> <br />
-            <Input type="checkbox" onChange={handleChange} name='Sarımsak'/>
-            <Label check>Sarımsak</Label> 
-            <Input type="checkbox" onChange={handleChange} name='Biber'/>
-            <Label check>Biber</Label>
-            <Input type="checkbox" onChange={handleChange} name='Ananas'/>
-            <Label check>Ananas</Label>  <br />
-            <Input type="checkbox" onChange={handleChange} name='Kabak'/>
-            <Label check>Kabak</Label>
-            <FormFeedback>{errors.malzemeler}</FormFeedback>
-          </FormGroup> 
+            {/*Ek malzemeler*/}
+            <FormGroup
+              check
+              inline
+            >
+              <Label for="ekMalzemeler">
+                Ek Malzemeler
+              </Label>
+              <FormText htmlFor="ekMalzemeler">
+                En az 4, en fazla 10 malzeme seçebilirsiniz. Malzeme başı 5 tl ek ücret.
+              </FormText> <br />
+              <Input type="checkbox" onChange={handleChange} name='Pepperoni' />
+              <Label check>Pepperoni</Label>
+              <Input type="checkbox" onChange={handleChange} name='Sosis' />
+              <Label check>Sosis</Label>
+              <Input type="checkbox" onChange={handleChange} name='Kanada Jambonu' />
+              <Label check>Kanada Jambonu</Label> <br />
+              <Input type="checkbox" onChange={handleChange} name='Tavuk Izgara' />
+              <Label check>Tavuk Izgara</Label>
+              <Input type="checkbox" onChange={handleChange} name='Soğan' />
+              <Label check>Soğan</Label>
+              <Input type="checkbox" onChange={handleChange} name='Domates' />
+              <Label check>Domates</Label>  <br />
+              <Input type="checkbox" onChange={handleChange} name='Mısır' />
+              <Label check>Mısır</Label>
+              <Input type="checkbox" onChange={handleChange} name='Sucuk' />
+              <Label check>Sucuk</Label>
+              <Input type="checkbox" onChange={handleChange} name='Jalepeno' />
+              <Label check>Jalepeno</Label> <br />
+              <Input type="checkbox" onChange={handleChange} name='Sarımsak' />
+              <Label check>Sarımsak</Label>
+              <Input type="checkbox" onChange={handleChange} name='Biber' />
+              <Label check>Biber</Label>
+              <Input type="checkbox" onChange={handleChange} name='Ananas' />
+              <Label check>Ananas</Label>  <br />
+              <Input type="checkbox" onChange={handleChange} name='Kabak' />
+              <Label check>Kabak</Label>
+              <FormFeedback>{errors.malzemeler}</FormFeedback>
+            </FormGroup>
           </div>
           {/* İsim - Soyisim */}
           <FormGroup className='form-text-area'>
@@ -211,13 +221,13 @@ export default function OrderPizza() {
               İsim-Soyisim
             </Label>
             <Input
-             id="isimSoyisim"
-             name="isimSoyisim"
-             placeholder="Lütfen isminizi girin."
-             type="text"
-             value={form.isimSoyisim}
-             onChange={handleChange}
-             invalid={errors.isimSoyisim !== ""} />
+              id="isimSoyisim"
+              name="isimSoyisim"
+              placeholder="Lütfen isminizi girin."
+              type="text"
+              value={form.isimSoyisim}
+              onChange={handleChange}
+              invalid={errors.isimSoyisim !== ""} />
             <FormFeedback>{errors.isimSoyisim}</FormFeedback>
           </FormGroup>
           {/* Sipariş notu */}
@@ -227,24 +237,25 @@ export default function OrderPizza() {
               id="siparisNotu"
               name="siparisNotu"
               placeholder="Siparişine eklemek istediğin bir not var mı?"
-              type="text" 
-              onChange={handleChange}/>
+              type="text"
+              onChange={handleChange} />
           </FormGroup>
           {/* Sipariş Miktarı */}
           <footer className='payment-container'>
             <div className="sayac-container">
               <Button type='button' onClick={handleDecrement}>-</Button>
               <p className="sayac-value">{count}</p>
-              <Button type='button' onClick={handleIncrement}>+</Button> 
+              <Button type='button' onClick={handleIncrement}>+</Button>
             </div>
             <div className='siparis-container'>
-                <h2>Sipariş Toplamı</h2>
-                <div><p>Seçimler</p>  <p>{form.malzemeler.length * 5}</p></div> 
-                <div><p>Toplam</p>  <p>{(85.5 * count) + (form.malzemeler.length * 5)}</p></div>
-                <Button size="lg" type='submit' disabled={!isValid}>SİPARİŞ VER</Button>
+              <h2>Sipariş Toplamı</h2>
+              <div><p>Seçimler</p>  <p>{form.malzemeler.length * 5}</p></div>
+              <div><p>Toplam</p>  <p>{(85.5 * count) + (form.malzemeler.length * 5)}</p></div>
+              <Button size="lg" type='submit' disabled={!isValid}>SİPARİŞ VER</Button>
             </div>
           </footer>
-        </Form>
+      </Form>
+      </>
     )
     
 }
