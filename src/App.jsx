@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import workintech from '/workintech.svg'
 import './App.css'
 import OrderPizza from "./components/OrderPizza";
 
@@ -9,7 +7,20 @@ function App() {
 
   return (
     <>
-      <OrderPizza/>
+    <header className='form-header'>
+        <h1>Teknolojik Yemekler</h1>
+        <nav className='nav-menu'>
+          <a href="/anasayfa">Anasayfa</a>
+          <p> - </p>
+          <a href="/secenekler">Seçenekler</a>
+          <p> - </p>
+          <a href="/siparis-olustur">Sipariş Oluştur</a>
+        </nav>
+    </header>
+    <main className='main-content'>
+     <OrderPizza/>
+    </main>
+    
     </>
   )
 }
