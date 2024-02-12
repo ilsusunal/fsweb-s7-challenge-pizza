@@ -25,8 +25,15 @@
   max-width: 600px;
   margin: 20px auto;
 }
+.order-pizza-form h2{
+  margin-bottom: 40px;
+}
 .order-pizza-form div {
   margin-bottom: 20px;
+}
+.pizza-info {
+  display: flex;
+  justify-content: space-between;
 }
 .form-group-row {
   display: flex;
@@ -36,6 +43,7 @@
   display: block;
   margin-bottom: 10px;
   font-size: 20px;
+  font-weight: 600;
 }
 .form-text {
   display: block;
