@@ -6,12 +6,13 @@ import PaymentButtons from './PaymentButtons';
 
 
 const initialData = {
-  isim: "",
+  isim: "Position Absolute Acı Pizza",
   boyut: "",
   malzemeler: [],
   özel: "",
-  puan: "",
-  yorumlar: "",
+  puan: 0,
+  yorumlar: 0,
+  fiyat: 0,
 }
 const errorMessages = {
   checkbox1 : "En az 4 tane malzeme seçmelisiniz!",
@@ -23,23 +24,42 @@ const errorMessages = {
 export default function OrderPizza() {
     const [form, setForm] = useState(initialData);
     const [errors, setErrors] = useState(initialData);
-    
+    const [isValid, setIsValid] = useState(false);
+
+      /* "form" her güncellendiğinde "validateForm()" fonksiyonunu çalıştır. */
+    useEffect(() => {
+      validateForm();
+    }, [form]);
+
+      /* "form"da yapılan değişiklikler uygun mu kontrol et. */
+    const validateForm = () => {
+      let newErrors = {};
+
+      if ()
+    };
+
+      /* "form"u güncelle*/
     const handleChange = (event) => {
       let { name, value, type } = event.target;
       setForm({ ...form, [name]: value });
       
+    };
+
+      /* isValid = true ise, "sipariş ver" butonuna basılsın ve post request atılsın. */
+    const handleSubmit = () => {
+
     }
 
     return (
 
         <Form className="order-pizza-form">
           {/*Pizza Info*/}
-          <h2>Pizza Adı</h2>
+          <h2>{form.isim}</h2>
           <div>
             <div className='pizza-info'>
-              <h1>Pizza fiyatı</h1>
-              <p>Puanı</p>
-              <p>Yorum Sayısı</p>
+              <h1>{form.fiyat}</h1>
+              <p>{form.puan}</p>
+              <p>{form.yorumlar}</p>
             </div>
             <p>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</p> 
           </div>
@@ -93,7 +113,7 @@ export default function OrderPizza() {
                 Hamur Kalınlığı
               </option>
               <option>
-                Ultra İnce
+                Süpper İnce
               </option>
               <option>
                 İnce
@@ -120,57 +140,31 @@ export default function OrderPizza() {
               En az 4, en fazla 10 malzeme seçebilirsiniz. Malzeme başı 5 tl ek ücret.
             </FormText>
             <Input type="checkbox" />
-            <Label id="ekMalzemeler" check>
-              Pepperoni
-            </Label>
+            <Label id="ekMalzemeler" check>Pepperoni</Label>
             <Input type="checkbox" />
-            <Label check>
-              Sosis
-            </Label>
+            <Label check>Sosis</Label>
             <Input type="checkbox" />
-            <Label check>
-              Kanada Jambonu
-            </Label>
+            <Label check>Kanada Jambonu</Label>
             <Input type="checkbox" />
-            <Label check>
-              Tavuk Izgara
-            </Label>
+            <Label check>Tavuk Izgara</Label>
             <Input type="checkbox" />
-            <Label check>
-              Soğan
-            </Label>
+            <Label check>Soğan</Label>
             <Input type="checkbox" />
-            <Label check>
-              Domates
-            </Label>
+            <Label check>Domates</Label>
             <Input type="checkbox" />
-            <Label check>
-              Mısır
-            </Label>
+            <Label check>Mısır</Label>
             <Input type="checkbox" />
-            <Label check>
-              Sucuk
-            </Label>
+            <Label check>Sucuk</Label>
             <Input type="checkbox" />
-            <Label check>
-              Jalepeno
-            </Label>
+            <Label check>Jalepeno</Label>
             <Input type="checkbox" />
-            <Label check>
-              Sarımsak
-            </Label>
+            <Label check>Sarımsak</Label>
             <Input type="checkbox" />
-            <Label check>
-              Biber
-            </Label>
+            <Label check>Biber</Label>
             <Input type="checkbox" />
-            <Label check>
-              Ananas
-            </Label>
+            <Label check>Ananas</Label>
             <Input type="checkbox" />
-            <Label check>
-              Kabak
-            </Label>
+            <Label check>Kabak</Label>
           </FormGroup> 
           </div>
           {/* İsim - Soyisim */}

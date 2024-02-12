@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
 export default function PaymentButtons() {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
 
         /* Sipariş Miktarı */
     const handleDecrement = () => {
-        if(count > 0){ 
+        if(count > 1){ 
             setCount(count - 1);
         }
     };
@@ -24,7 +24,7 @@ export default function PaymentButtons() {
 
 
     return (
-        <main>
+        <main className='payment-container'>
         <div className="sayac-container">
             <form onSubmit={handleSubmit}>
                 <button type='button' onClick={handleDecrement}>-</button>
