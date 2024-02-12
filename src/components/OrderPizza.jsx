@@ -9,7 +9,8 @@ const initialData = {
   boyut: "",
   hamur: "",
   malzemeler: [],
-  ozel: "",
+  siparisNotu: "",
+  miktar: "",
 }
 const errorMessages = {
   malzemeler : "En az 4, en çok 10 tane malzeme seçmelisiniz!",
@@ -64,7 +65,6 @@ export default function OrderPizza() {
       } else {
         setForm({ ...form, [name]: value });
       }
-      
     };
 
     /* Sipariş Miktarı */
@@ -81,9 +81,9 @@ export default function OrderPizza() {
     /* isValid = true ise, "sipariş ver" butonuna basılsın ve post request atılsın. */
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        const updatedForm = { ...form, miktar: count };
         axios
-        .post('https://reqres.in/api/pizza', form)
+        .post('https://reqres.in/api/pizza', updatedForm)
         .then(response => {
           console.log('Sipariş Detayı:', response.data);
         })
@@ -227,7 +227,8 @@ export default function OrderPizza() {
               id="siparisNotu"
               name="siparisNotu"
               placeholder="Siparişine eklemek istediğin bir not var mı?"
-              type="text" />
+              type="text" 
+              onChange={handleChange}/>
           </FormGroup>
           {/* Sipariş Miktarı */}
           <footer className='payment-container'>
