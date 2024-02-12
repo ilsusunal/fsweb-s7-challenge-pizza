@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Barlow, Roboto Condensed, Quattrocento, Satisfy;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
@@ -11,4 +11,6 @@
 * {
   margin: 0;
   box-sizing: border-box; 
+  font-family: Barlow;
+  padding: 0;
 }

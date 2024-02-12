@@ -81,11 +81,20 @@ export default function OrderPizza() {
     /* isValid = true ise, "sipariş ver" butonuna basılsın ve post request atılsın. */
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        axios
+        .post('https://reqres.in/api/pizza', form)
+        .then(response => {
+          console.log('Sipariş Detayı:', response.data);
+        })
+        .catch(error => {
+          console.error('HATA:', error);
+        });
     };
 
     return (
 
-        <Form className="order-pizza-form">
+        <Form className="order-pizza-form" onSubmit={handleSubmit}>
           {/*Pizza Info*/}
           <h2>Position Absolute Acı Pizza</h2>
           <div>
@@ -155,49 +164,49 @@ export default function OrderPizza() {
             </Input> {errors.hamur && <FormFeedback>{errorMessages.hamur}</FormFeedback>}
           </FormGroup>
           </div>
-          <div >
+          <div className='ekMalzemeler'>
            {/*Ek malzemeler*/}
           <FormGroup
             check
-            inline
+            inline 
           >
             <Label for="ekMalzemeler">
               Ek Malzemeler
             </Label>
-            <FormText for="ekMalzemeler">
+            <FormText htmlFor="ekMalzemeler">
               En az 4, en fazla 10 malzeme seçebilirsiniz. Malzeme başı 5 tl ek ücret.
-            </FormText>
+            </FormText> <br />
             <Input type="checkbox" onChange={handleChange} name='Pepperoni'/>
             <Label check>Pepperoni</Label>
             <Input type="checkbox" onChange={handleChange} name='Sosis'/>
-            <Label check>Sosis</Label>
+            <Label check>Sosis</Label> 
             <Input type="checkbox" onChange={handleChange} name='Kanada Jambonu'/>
-            <Label check>Kanada Jambonu</Label>
+            <Label check>Kanada Jambonu</Label> <br />
             <Input type="checkbox" onChange={handleChange} name='Tavuk Izgara'/>
-            <Label check>Tavuk Izgara</Label>
+            <Label check>Tavuk Izgara</Label> 
             <Input type="checkbox" onChange={handleChange} name='Soğan'/>
             <Label check>Soğan</Label>
             <Input type="checkbox"onChange={handleChange} name='Domates' />
-            <Label check>Domates</Label>
+            <Label check>Domates</Label>  <br />
             <Input type="checkbox" onChange={handleChange} name='Mısır'/>
             <Label check>Mısır</Label>
             <Input type="checkbox" onChange={handleChange} name='Sucuk'/>
-            <Label check>Sucuk</Label>
+            <Label check>Sucuk</Label> 
             <Input type="checkbox" onChange={handleChange} name='Jalepeno'/>
-            <Label check>Jalepeno</Label>
+            <Label check>Jalepeno</Label> <br />
             <Input type="checkbox" onChange={handleChange} name='Sarımsak'/>
-            <Label check>Sarımsak</Label>
+            <Label check>Sarımsak</Label> 
             <Input type="checkbox" onChange={handleChange} name='Biber'/>
             <Label check>Biber</Label>
             <Input type="checkbox" onChange={handleChange} name='Ananas'/>
-            <Label check>Ananas</Label>
+            <Label check>Ananas</Label>  <br />
             <Input type="checkbox" onChange={handleChange} name='Kabak'/>
             <Label check>Kabak</Label>
             <FormFeedback>{errors.malzemeler}</FormFeedback>
           </FormGroup> 
           </div>
           {/* İsim - Soyisim */}
-          <FormGroup>
+          <FormGroup className='form-text-area'>
             <Label for="isimSoyisim">
               İsim-Soyisim
             </Label>
@@ -212,7 +221,7 @@ export default function OrderPizza() {
             <FormFeedback>{errors.isimSoyisim}</FormFeedback>
           </FormGroup>
           {/* Sipariş notu */}
-          <FormGroup>
+          <FormGroup className='form-text-area'>
             <Label for="siparisNotu">Sipariş Notu</Label>
             <Input
               id="siparisNotu"
@@ -223,19 +232,15 @@ export default function OrderPizza() {
           {/* Sipariş Miktarı */}
           <footer className='payment-container'>
             <div className="sayac-container">
-                <form onSubmit={handleSubmit}>
-                    <Button type='button' onClick={handleDecrement}>-</Button>
-                    <p className="sayac-value">{count}</p>
-                    <Button type='button' onClick={handleIncrement}>+</Button>  
-                </form>
+              <Button type='button' onClick={handleDecrement}>-</Button>
+              <p className="sayac-value">{count}</p>
+              <Button type='button' onClick={handleIncrement}>+</Button> 
             </div>
             <div className='siparis-container'>
-                <form onSubmit={handleSubmit}>
-                    <h2>Sipariş Toplamı</h2>
-                    <div>Seçimler  {form.malzemeler.length * 5}</div>
-                    <div>Toplam  {(85.5 * count) + (form.malzemeler.length * 5)}</div>
-                    <Button size="lg" type='submit' disabled={!isValid}>SİPARİŞ VER</Button>
-                </form>
+                <h2>Sipariş Toplamı</h2>
+                <div><p>Seçimler</p>  <p>{form.malzemeler.length * 5}</p></div> 
+                <div><p>Toplam</p>  <p>{(85.5 * count) + (form.malzemeler.length * 5)}</p></div>
+                <Button size="lg" type='submit' disabled={!isValid}>SİPARİŞ VER</Button>
             </div>
           </footer>
         </Form>
