@@ -95,6 +95,7 @@ export default function OrderPizza() {
         });
     };
 
+    /* Butona tıklandığında Sipariş Yolda sayfasına gitsin. */
     const handleClick = () => {
       history.push("/siparis-alindi")
     }

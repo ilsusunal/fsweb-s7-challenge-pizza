@@ -13,7 +13,7 @@ export default function MainPage () {
  return(
     <>
     <div style={{
-                backgroundImage: `url(http://localhost:5174/Assets/mile1-assets/home-banner.png)`,
+                backgroundImage: `url(http://localhost:5173/Assets/mile1-assets/home-banner.png)`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 width: '100%',

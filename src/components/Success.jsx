@@ -5,11 +5,16 @@ export default function Success () {
 
     return (
         <>
-        <main className="success-page">
+        <header className="success-page">
             <img src={LogoSVG} alt="Logo" />
+            <h3 className="secondary-title">lezzetin yolda</h3>
             <h1 className='main-title'>TEBRİKLER!</h1> 
             <h1 className='main-title'>SİPARİŞİNİZ ALINDI!</h1> 
+        </header>
+        <main>
+            
         </main>
+
         </>
     )
 }
