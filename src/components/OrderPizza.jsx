@@ -89,6 +89,7 @@ export default function OrderPizza() {
         .post('https://reqres.in/api/pizza', updatedForm)
         .then(response => {
           console.log('Sipariş Detayı:', response.data);
+          history.push({ pathname: "/siparis-alindi", state: {formData: response.data, count: Number(count), form: form}});
         })
         .catch(error => {
           console.error('HATA:', error);
@@ -96,9 +97,9 @@ export default function OrderPizza() {
     };
 
     /* Butona tıklandığında Sipariş Yolda sayfasına gitsin. */
-    const handleClick = () => {
-      history.push("/siparis-alindi")
-    }
+    /*const handleClick = () => {
+      history.push({ pathname: "/siparis-alindi", state: {formData: updatedForm}});
+    }*/
 
     return (
       <>
@@ -133,7 +134,7 @@ export default function OrderPizza() {
                 <Input
                   name="boyut"
                   type="radio"
-                  value="kucuk"
+                  value="Küçük"
                   onChange={handleChange} />
                 {' '}
                 <Label check>
@@ -144,7 +145,7 @@ export default function OrderPizza() {
                 <Input
                   name="boyut"
                   type="radio"
-                  value="orta"
+                  value="Orta"
                   onChange={handleChange} />
                 {' '}
                 <Label check>
@@ -155,7 +156,7 @@ export default function OrderPizza() {
                 <Input
                   name="boyut"
                   type="radio"
-                  value="bucuk"
+                  value="Büyük"
                   onChange={handleChange} />
                 {' '}
                 <Label check>
@@ -249,6 +250,8 @@ export default function OrderPizza() {
               onChange={handleChange} />
           </FormGroup>
           {/* Sipariş Miktarı */}
+          {/*<PaymentButton formData={form} count={count} handleSubmit={handleSubmit} handleDecrement={handleDecrement}handleIncrement={handleIncrement} 
+              isValid={isValid}/>*/}
           <footer className='payment-container'>
             <div className="sayac-container">
               <Button type='button' onClick={handleDecrement}>-</Button>
@@ -257,9 +260,9 @@ export default function OrderPizza() {
             </div>
             <div className='siparis-container'>
               <h2>Sipariş Toplamı</h2>
-              <div><p>Seçimler</p>  <p>{form.malzemeler.length * 5}</p></div>
-              <div><p>Toplam</p>  <p>{(85.5 * count) + (form.malzemeler.length * 5)}</p></div>
-              <Button onClick={handleClick} size="lg" type='submit' disabled={!isValid}>SİPARİŞ VER</Button>
+              <div><p>Seçimler</p>  <p>{form.malzemeler.length * 5} ₺</p></div>
+              <div><p>Toplam</p>  <p>{(85.5 * count) + (form.malzemeler.length * 5)} ₺</p></div>
+              <Button onClick={handleSubmit} size="lg" type='submit' disabled={!isValid}>SİPARİŞ VER</Button>
             </div>
           </footer>
       </Form>

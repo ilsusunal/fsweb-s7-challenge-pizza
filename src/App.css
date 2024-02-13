@@ -100,6 +100,17 @@
   border: 1px solid #292929;
   flex-direction: column; 
 }
+.siparis-container2{
+  margin-left: 20px;
+  flex: 2;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 4px;
+  gap: 10px;
+  border: 1px solid white;
+  flex-direction: column; 
+  color:white;
+}
 .siparis-container form{
   flex: 1;
   display: flex; 
@@ -157,4 +168,8 @@ button:hover {
 }
 .success-page img {
  margin: 115px;
+}
+.success-siparis-info{
+  display: flex;
+  flex-direction: column;
 }
