@@ -26,7 +26,20 @@ export default function MainPage () {
     <h1 className='main-title'>KOD ACIKTIRIR <br /> PİZZA DOYURUR</h1>
     <button id='anasayfa-buton' onClick={handleButton}>ACIKTIM</button>
     </div>
-
+    <nav className='main-nav'>
+        <ul>
+            <li><a href="/"><img src="Assets\mile2-aseets\icons\1.svg" alt="Kore" />YENİ! Kore</a></li>
+            <li><a href="/"><img src="Assets\mile2-aseets\icons\2.svg" alt="Pizza" />Pizza</a></li>
+            <li><a href="/"><img src="Assets\mile2-aseets\icons\3.svg" alt="Burger" />Burger</a></li>
+            <li><a href="/"><img src="Assets\mile2-aseets\icons\4.svg" alt="Kızartmalar" />Kızartmalar</a></li>
+            <li><a href="/"><img src="Assets\mile2-aseets\icons\5.svg" alt="Fast Food" />Fast Food</a></li>
+            <li><a href="/"><img src="Assets\mile2-aseets\icons\6.svg" alt="Gazlı İçecek" />Gazlı İçecek</a></li>
+        </ul>
+    </nav>
+    <section>
+        
+    </section>
     </>
+    
  )
 };

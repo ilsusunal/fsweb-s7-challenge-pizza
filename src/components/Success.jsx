@@ -1,4 +1,5 @@
 import LogoSVG  from "../../Assets/mile1-assets/logo.svg";
+import { useHistory } from 'react-router-dom';
 import React from 'react';
 
 
@@ -10,6 +11,12 @@ export default function Success (props) {
 
     /* Destructuring formData */
     const {formData, count, form} = props.location.state;
+
+    const history = useHistory();
+
+    const handleButton = () => {
+        history.push("/")
+    }
 
     return (
         <>
@@ -24,19 +31,19 @@ export default function Success (props) {
             <section className="siparis-alindi-info">
                 <h2>Position Absolute Acı Pizza</h2> 
                 <section className="siparis-form-info">
-                    <div><p>Boyut: </p> <p>{formData.boyut}</p></div> 
-                    <div><p>Hamur: </p> <p>{formData.hamur}</p></div> 
-                    <div><p>Ek Malzemeler: </p> <p>{formData.malzemeler.join(', ')}</p></div>
+                    <div><p>Boyut: </p> <p> {formData.boyut}</p></div> 
+                    <div><p>Hamur: </p> <p> {formData.hamur}</p></div> 
+                    <div><p>Ek Malzemeler: </p> <p> {formData.malzemeler.join(', ')}</p></div>
                 </section>
                 <section className='payment-container'>
                     <div className='siparis-odeme-info'>
-                        <h2>Sipariş Toplamı</h2>
+                        <h3>Sipariş Toplamı</h3>
                         <div><p>Seçimler</p> <p>{form.malzemeler.length * 5} ₺</p></div>
                         <div><p>Toplam</p> <p>{(85.5 * count) + (form.malzemeler.length * 5)} ₺</p></div>
                     </div>
                 </section>
-            </section>
-            
+            </section>  
+            <button id='success-buton' onClick={handleButton}>Anasayfaya Dön</button>
         </main>
 
         </>
