@@ -105,25 +105,27 @@ export default function OrderPizza() {
       <>
       <header className='form-header'>
         <img src={LogoSVG} alt="Logo" />
-        <nav className='nav-menu'>
-          <a href="/">Anasayfa</a>
-          <p> - </p>
-          <a href="/secenekler">Seçenekler</a>
-          <p> - </p>
-          <a href="/siparis-olustur">Sipariş Oluştur</a>
-        </nav>
       </header>
+      
       <Form className="order-pizza-form" onSubmit={handleSubmit}>
           {/*Pizza Info*/}
-          <h2>Position Absolute Acı Pizza</h2>
-          <div>
+          <section className='bej-part'>
+            <nav className='nav-menu'>
+                <a href="/">Anasayfa</a>
+                <p> - </p>
+                <a href="/secenekler">Seçenekler</a>
+                <p> - </p>
+                <a href="/siparis-olustur">Sipariş Oluştur</a>
+            </nav>
+            <h2>Position Absolute Acı Pizza</h2>
             <div className='pizza-info'>
               <h1>85.5 ₺</h1>
               <p>4.9</p>
               <p>(200)</p>
             </div>
-            <p>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</p>
-          </div>
+            <p>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizzetta denir.</p>
+          </section>
+          
           <div className="form-group-row">
             {/* Pizza boyutu */}
             <FormGroup>
@@ -252,7 +254,7 @@ export default function OrderPizza() {
           {/* Sipariş Miktarı */}
           {/*<PaymentButton formData={form} count={count} handleSubmit={handleSubmit} handleDecrement={handleDecrement}handleIncrement={handleIncrement} 
               isValid={isValid}/>*/}
-          <footer className='payment-container'>
+          <section className='payment-container'>
             <div className="sayac-container">
               <Button type='button' onClick={handleDecrement}>-</Button>
               <p className="sayac-value">{count}</p>
@@ -264,7 +266,7 @@ export default function OrderPizza() {
               <div><p>Toplam</p>  <p>{(85.5 * count) + (form.malzemeler.length * 5)} ₺</p></div>
               <Button onClick={handleSubmit} size="lg" type='submit' disabled={!isValid}>SİPARİŞ VER</Button>
             </div>
-          </footer>
+          </section>
       </Form>
       </>
     )
