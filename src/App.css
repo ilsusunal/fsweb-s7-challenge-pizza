@@ -14,6 +14,7 @@
 }
 .nav-menu {
   display: flex;
+  align-items: center;
   margin-bottom: 4px;
 }
 .nav-menu a {
@@ -27,8 +28,12 @@
 }
 
 .order-pizza-form {
-  max-width: 600px;
-  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.order-pizza-form section{
+  max-width:600px;
 }
 .order-pizza-form h2{
   margin-bottom: 40px;
@@ -52,6 +57,15 @@
   display: flex;
   justify-content: space-between;
 }
+.form-group-row .form-check{
+  display: flex;
+}
+.form-select{
+  background-color: #FAF7F2;
+  border-radius: 20px;
+  padding: 20px;
+  border: none;
+}
 .form-label {
   display: block;
   margin-bottom: 10px;
@@ -65,12 +79,26 @@
 .form-check-label {
   margin: 10px;
 }
+.form-check-input{
+  background-color: #FAF7F2;
+  border-radius: 20px;
+  padding: 20px;
+  border: none;
+}
 .invalid-feedback {
   color: #CE2829;
   margin-top: 20px;
 }
 .form-text-area{
   width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.form-text-area input{
+  background-color: #FAF7F2;
+  border-radius: 20px;
+  padding: 20px;
+  border: none;
 }
 .ekMalzemeler {
   align-items: center;
@@ -80,6 +108,8 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  border-top: 1px solid #5F5F5F;
+  padding-top: 2rem;
 }
 .sayac-container {
   display: block;
@@ -87,8 +117,15 @@
   flex: 1;
   height: 3rem;
   border-radius: 4px;
-  border: 1px solid #292929; 
+  display: flex;
+  background-color: #FAF7F2;
+  align-items: center;
+  font-weight: 400;
 }
+.sayac-container button {
+  background-color: #FAF7F2;
+}
+
 .sayac-container form {
   display: flex;
   flex-direction: row;
@@ -105,11 +142,11 @@
   margin-left: 20px;
   flex: 2;
   align-items: flex-start;
-  padding: 20px;
+  padding-top: 20px;
   border-radius: 4px;
   gap: 10px;
-  border: 1px solid #292929;
   flex-direction: column; 
+  background-color: #FAF7F2;
 }
 .siparis-container form{
   flex: 1;
@@ -118,16 +155,19 @@
 }
 .siparis-container h2{
   margin-bottom: 10px;
+  padding:10px 50px;
 }
 .siparis-container div {
   display: flex;
   justify-content: space-between; 
-  margin-bottom: 10px;
   color: #292929; 
+  padding:0 50px ;
+  
 }
 .siparis-container div:nth-child(3) {
   color: #CE2829;
   font-weight: bold;
+  margin-bottom: 50px;
 }
 
 /* BUTONLAR*/

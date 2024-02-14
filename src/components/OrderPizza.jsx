@@ -112,11 +112,9 @@ export default function OrderPizza() {
           <section className='bej-part'>
             <img src="Assets\mile2-aseets\pictures\form-banner.png" alt="formBanner" />
             <nav className='nav-menu'>
-                <a href="/">Anasayfa</a>
+                <a href="/">Anasayfa </a>
                 <p> - </p>
-                <a href="/secenekler">Seçenekler</a>
-                <p> - </p>
-                <a href="/siparis-olustur">Sipariş Oluştur</a>
+                <a href="/siparis-olustur"> Sipariş Oluştur</a>
             </nav>
             <h2>Position Absolute Acı Pizza</h2>
             <div className='pizza-info'>
@@ -127,7 +125,7 @@ export default function OrderPizza() {
             <p>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizzetta denir.</p>
           </section>
           
-          <div className="form-group-row">
+          <section className="form-group-row">
             {/* Pizza boyutu */}
             <FormGroup>
               <Label>
@@ -185,9 +183,9 @@ export default function OrderPizza() {
                 <option value="Kalın">Kalın</option>
               </Input> {errors.hamur && <FormFeedback>{errorMessages.hamur}</FormFeedback>}
             </FormGroup>
-          </div>
-          <div className='ekMalzemeler'>
-            {/*Ek malzemeler*/}
+          </section>
+          {/*Ek malzemeler*/}
+          <section className='ekMalzemeler'>
             <FormGroup
               check
               inline
@@ -226,7 +224,7 @@ export default function OrderPizza() {
               <Label check>Kabak</Label>
               <FormFeedback>{errors.malzemeler}</FormFeedback>
             </FormGroup>
-          </div>
+          </section>
           {/* İsim - Soyisim */}
           <FormGroup className='form-text-area'>
             <Label for="isimSoyisim">
