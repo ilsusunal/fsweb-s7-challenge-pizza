@@ -110,6 +110,7 @@ export default function OrderPizza() {
       <Form className="order-pizza-form" onSubmit={handleSubmit}>
           {/*Pizza Info*/}
           <section className='bej-part'>
+            <img src="Assets\mile2-aseets\pictures\form-banner.png" alt="formBanner" />
             <nav className='nav-menu'>
                 <a href="/">Anasayfa</a>
                 <p> - </p>
