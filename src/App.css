@@ -33,7 +33,7 @@
   align-items: center;
 }
 .order-pizza-form section{
-  max-width:600px;
+  max-width:700px;
 }
 .order-pizza-form h2{
   margin-bottom: 40px;
@@ -186,7 +186,7 @@ button:hover {
   cursor: pointer;
   border: 1px solid white;
 }
-#anasayfa-buton{
+.anasayfa-buton{
   width: 100px;
 }
 #success-buton{

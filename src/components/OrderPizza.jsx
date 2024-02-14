@@ -136,7 +136,8 @@ export default function OrderPizza() {
                   name="boyut"
                   type="radio"
                   value="Küçük"
-                  onChange={handleChange} />
+                  onChange={handleChange} 
+                  data-cy="pizza-boyut-kucuk" />
                 {' '}
                 <Label check>
                   Küçük
@@ -147,7 +148,8 @@ export default function OrderPizza() {
                   name="boyut"
                   type="radio"
                   value="Orta"
-                  onChange={handleChange} />
+                  onChange={handleChange}
+                  data-cy="pizza-boyut-orta" />
                 {' '}
                 <Label check>
                   Orta
@@ -158,7 +160,8 @@ export default function OrderPizza() {
                   name="boyut"
                   type="radio"
                   value="Büyük"
-                  onChange={handleChange} />
+                  onChange={handleChange}
+                  data-cy="pizza-boyut-buyuk" />
                 {' '}
                 <Label check>
                   Büyük
@@ -196,31 +199,31 @@ export default function OrderPizza() {
               <FormText htmlFor="ekMalzemeler">
                 En az 4, en fazla 10 malzeme seçebilirsiniz. Malzeme başı 5 tl ek ücret.
               </FormText> <br />
-              <Input type="checkbox" onChange={handleChange} name='Pepperoni' />
+              <Input type="checkbox" onChange={handleChange} value='Pepperoni' />
               <Label check>Pepperoni</Label>
-              <Input type="checkbox" onChange={handleChange} name='Sosis' />
+              <Input type="checkbox" onChange={handleChange} value='Sosis' />
               <Label check>Sosis</Label>
-              <Input type="checkbox" onChange={handleChange} name='Kanada Jambonu' />
+              <Input type="checkbox" onChange={handleChange} value='Kanada Jambonu' />
               <Label check>Kanada Jambonu</Label> <br />
-              <Input type="checkbox" onChange={handleChange} name='Tavuk Izgara' />
+              <Input type="checkbox" onChange={handleChange} value='Tavuk Izgara' />
               <Label check>Tavuk Izgara</Label>
-              <Input type="checkbox" onChange={handleChange} name='Soğan' />
+              <Input type="checkbox" onChange={handleChange} value='Soğan' />
               <Label check>Soğan</Label>
-              <Input type="checkbox" onChange={handleChange} name='Domates' />
+              <Input type="checkbox" onChange={handleChange} value='Domates' />
               <Label check>Domates</Label>  <br />
-              <Input type="checkbox" onChange={handleChange} name='Mısır' />
+              <Input type="checkbox" onChange={handleChange} value='Mısır' />
               <Label check>Mısır</Label>
-              <Input type="checkbox" onChange={handleChange} name='Sucuk' />
+              <Input type="checkbox" onChange={handleChange} value='Sucuk' />
               <Label check>Sucuk</Label>
-              <Input type="checkbox" onChange={handleChange} name='Jalepeno' />
+              <Input type="checkbox" onChange={handleChange} value='Jalepeno' />
               <Label check>Jalepeno</Label> <br />
-              <Input type="checkbox" onChange={handleChange} name='Sarımsak' />
+              <Input type="checkbox" onChange={handleChange} value='Sarımsak' />
               <Label check>Sarımsak</Label>
-              <Input type="checkbox" onChange={handleChange} name='Biber' />
+              <Input type="checkbox" onChange={handleChange} value='Biber' />
               <Label check>Biber</Label>
-              <Input type="checkbox" onChange={handleChange} name='Ananas' />
+              <Input type="checkbox" onChange={handleChange} value='Ananas' />
               <Label check>Ananas</Label>  <br />
-              <Input type="checkbox" onChange={handleChange} name='Kabak' />
+              <Input type="checkbox" onChange={handleChange} value='Kabak' />
               <Label check>Kabak</Label>
               <FormFeedback>{errors.malzemeler}</FormFeedback>
             </FormGroup>

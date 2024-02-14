@@ -26,7 +26,7 @@ export default function MainPage () {
             }}>
     <img src={LogoSVG} alt="Logo" />
     <h1 className='main-title'>KOD ACIKTIRIR <br /> PİZZA DOYURUR</h1>
-    <button id='anasayfa-buton' onClick={handleButton}>ACIKTIM</button>
+    <button className='anasayfa-buton' data-cy="mainpage-button" onClick={handleButton}>ACIKTIM</button>
     </div>
     <nav className='main-nav'>
         <ul>
