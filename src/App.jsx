@@ -1,18 +1,18 @@
-import { BrowserRouter as Router, Switch, Route, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import './App.css'
 
 import OrderPizza from "./components/OrderPizza";
 import MainPage from './components/MainPage';
 import Success from "./components/Success";
-import React, { useState } from "react";
+import React, { useState} from "react";
 
 function App() {
   const [orderData, setOrderData] = useState(null);
-  const history = useHistory();
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const handleOrderData = (d) => {
     setOrderData(d);
-    
-    console.log("DATALAR APP DOSYASINA GEÇMİŞ",d);
+    setIsSubmitted(true);
   };
 
   return (
@@ -25,7 +25,9 @@ function App() {
           <OrderPizza onSubmit={handleOrderData}/>
         </Route>
         <Route path="/siparis-alindi">
-        <Success orderData={orderData}/>
+        {console.log("Rendering Success component. isSubmitted:", isSubmitted)}
+        {console.log("AKTARILAN ORDER DATA:", orderData)}
+        {isSubmitted && <Success orderData={orderData} />}
         </Route>
       </Switch>
     </Router>
