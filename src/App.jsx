@@ -25,7 +25,7 @@ function App() {
           <OrderPizza onSubmit={handleOrderData}/>
         </Route>
         <Route path="/siparis-alindi">
-        {console.log("Rendering Success component. isSubmitted:", isSubmitted)}
+        {/*console.log("Rendering Success component. isSubmitted:", isSubmitted)*/}
         {console.log("AKTARILAN ORDER DATA:", orderData)}
         {isSubmitted && <Success orderData={orderData} />}
         </Route>

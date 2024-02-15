@@ -27,7 +27,6 @@ export default function OrderPizza({ onSubmit }) {
     const [errors, setErrors] = useState(initialData);
     const [isValid, setIsValid] = useState(false);
     const [count, setCount] = useState(1);
-    const [isSubmitted, setIsSubmitted] = useState(false);
     const history = useHistory();
 
     /* "form" her güncellendiğinde "validateForm()" fonksiyonu çalışacak
@@ -95,11 +94,9 @@ export default function OrderPizza({ onSubmit }) {
         axios
         .post('https://reqres.in/api/pizza', updatedForm)
         .then(response => {
-          console.log('Sipariş Detayı:', response.data);
           onSubmit(response.data);
-          setIsSubmitted(true);
-          console.log("Form submitted successfully. isSubmitted:", isSubmitted);
           history.push("/siparis-alindi");
+          //console.log('Sipariş Detayı:', response.data);
         })
         .catch(error => {
           console.error('HATA:', error);
@@ -261,6 +258,7 @@ export default function OrderPizza({ onSubmit }) {
           </FormGroup>
           </section>  
       </Form>
+      {/* Ödeme Kısmı */}
       <section className='payment-container'>
           <div className="sayac-container">
               <Button type='button' onClick={handleDecrement}>-</Button>
