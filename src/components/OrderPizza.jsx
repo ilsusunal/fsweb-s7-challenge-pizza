@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import axios from "axios";
 import { Form, FormGroup, Label, Input, Button, FormText, FormFeedback } from 'reactstrap';
 import LogoSVG  from "../../Assets/mile1-assets/logo.svg";
+import Footer from './Footer';
 
 /* Ürün bilgilerini belirledim */
 const initialData = {
@@ -20,6 +21,22 @@ const errorMessages = {
   boyut: "* Lütfen bir boyut seçin.",
   hamur: "* Lütfen hamur kalınlığı seçin.",
 }
+/* Malzemeleri belirledim */
+const malzemeler = [
+  { name: 'Pepperoni', label: 'Pepperoni' },
+  { name: 'Sosis', label: 'Sosis' },
+  { name: 'Kanada Jambonu', label: 'Kanada Jambonu' },
+  { name: 'Tavuk Izgara', label: 'Tavuk Izgara' },
+  { name: 'Soğan', label: 'Soğan' },
+  { name: 'Domates', label: 'Domates' },
+  { name: 'Mısır', label: 'Mısır' },
+  { name: 'Sucuk', label: 'Sucuk' },
+  { name: 'Jalepeno', label: 'Jalepeno' },
+  { name: 'Sarımsak', label: 'Sarımsak' },
+  { name: 'Biber', label: 'Biber' },
+  { name: 'Ananas', label: 'Ananas' },
+  { name: 'Kabak', label: 'Kabak' }
+];
 
 export default function OrderPizza({ onSubmit }) {
   /* Kullanıcı etkileşimi ile değişecek veriler */
@@ -105,28 +122,34 @@ export default function OrderPizza({ onSubmit }) {
 
     return (
       <>
+      {/*--------Logo-----------*/}
       <header className='form-header'>
         <img src={LogoSVG} alt="Logo" />
       </header>
-      {/*Pizza Info*/}
+      {/*--------Pizza Info-----------*/}
       <section className='bej-part'>
+        <div className='bej-part-icerik'>
           <img src="Assets\mile2-aseets\pictures\form-banner.png" alt="formBanner" />
-            <nav className='nav-menu'>
-                <a href="/">Anasayfa </a>
-                <p> - </p>
-                <a href="/siparis-olustur"> Sipariş Oluştur</a>
-            </nav>
-            <h2>Position Absolute Acı Pizza</h2>
-            <div className='pizza-info'>
-              <h1>85.5 ₺</h1>
-              <p>4.9</p>
-              <p>(200)</p>
-            </div>
-            <p style={{color: '#5F5F5F'}} >Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizzetta denir.</p>
+          <nav className='nav-menu'>
+            <a href="/">Anasayfa </a>
+            <p> - </p>
+            <a href="/siparis-olustur"> Sipariş Oluştur</a>
+          </nav>
+          <h2>Position Absolute Acı Pizza</h2>
+          <div className='pizza-info'>
+            <h1>85.5 ₺</h1>
+            <p>4.9</p>
+            <p>(200)</p>
+          </div>
+          <p style={{color: '#5F5F5F'}} >Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizzetta denir.</p>
+        </div>
+          
         </section>
+      {/*--------Sipariş Formu-----------*/}
       <Form className="order-pizza-form" onSubmit={handleSubmit}>
+        <section className='boyut'>
+          {/* Pizza boyutu */}
           <div className="form-group-row">
-            {/* Pizza boyutu */}
             <FormGroup >
               <Label>
                 Boyut Seç*
@@ -165,33 +188,36 @@ export default function OrderPizza({ onSubmit }) {
                 {' '}
                 <Label check>
                   L
-                </Label> {errors.boyut && <FormFeedback>{errorMessages.boyut}</FormFeedback>}
+                </Label> 
+              {errors.boyut && <FormFeedback>{errorMessages.boyut}</FormFeedback>}
               </FormGroup>
             </FormGroup>
-            {/* Hamur kalınlığı */}
-            <FormGroup>
-              <Label for="hamurKalınlıgı">
-                Hamur Seç*
-              </Label>
-              <Input
-                id="hamurKalınlıgı"
-                name="hamur"
-                type="select"
-                onChange={handleChange}
-              >
-                <option value="">- Hamur Kalınlığı Seç -</option>
-                <option value="Süpper İnce">Süpper İnce</option>
-                <option value="İnce">İnce</option>
-                <option value="Orta">Orta</option>
-                <option value="Kalın">Kalın</option>
-              </Input> {errors.hamur && <FormFeedback>{errorMessages.hamur}</FormFeedback>}
-            </FormGroup>
           </div>
+          {/* Hamur kalınlığı */}
+          <div className="form-group-row">
+              <FormGroup>
+                <Label for="hamurKalınlıgı">
+                  Hamur Seç*
+                </Label>
+                <Input
+                  id="hamurKalınlıgı"
+                  name="hamur"
+                  type="select"
+                  onChange={handleChange}
+                >
+                  <option value="">- Hamur Kalınlığı Seç -</option>
+                  <option value="Süpper İnce">Süpper İnce</option>
+                  <option value="İnce">İnce</option>
+                  <option value="Orta">Orta</option>
+                  <option value="Kalın">Kalın</option>
+                </Input> {errors.hamur && <FormFeedback>{errorMessages.hamur}</FormFeedback>}
+              </FormGroup>
+          </div>
+        </section>
           {/*Ek malzemeler*/}
           <section className='ekMalzemeler'>
             <FormGroup
               check
-              inline
             >
               <Label for="ekMalzemeler">
                 Ek Malzemeler
@@ -199,24 +225,25 @@ export default function OrderPizza({ onSubmit }) {
               <FormText htmlFor="ekMalzemeler">
                 En az 4, en fazla 10 malzeme seçebilirsiniz. Malzeme başı 5 tl ek ücret.
               </FormText> <br />
-              <Input type="checkbox" onChange={handleChange} name='Pepperoni' />
+              {/*<div>
+                <Input type="checkbox" onChange={handleChange} name='Pepperoni' />
               <Label check>Pepperoni</Label>
               <Input type="checkbox" onChange={handleChange} name='Sosis' />
               <Label check>Sosis</Label>
               <Input type="checkbox" onChange={handleChange} name='Kanada Jambonu' />
-              <Label check>Kanada Jambonu</Label> <br />
+              <Label check>Kanada Jambonu</Label> 
               <Input type="checkbox" onChange={handleChange} name='Tavuk Izgara' />
               <Label check>Tavuk Izgara</Label>
               <Input type="checkbox" onChange={handleChange} name='Soğan' />
               <Label check>Soğan</Label>
               <Input type="checkbox" onChange={handleChange} name='Domates' />
-              <Label check>Domates</Label>  <br />
+              <Label check>Domates</Label>  
               <Input type="checkbox" onChange={handleChange} name='Mısır' />
               <Label check>Mısır</Label>
               <Input type="checkbox" onChange={handleChange} name='Sucuk' />
               <Label check>Sucuk</Label>
               <Input type="checkbox" onChange={handleChange} name='Jalepeno' />
-              <Label check>Jalepeno</Label> <br />
+              <Label check>Jalepeno</Label> 
               <Input type="checkbox" onChange={handleChange} name='Sarımsak' />
               <Label check>Sarımsak</Label>
               <Input type="checkbox" onChange={handleChange} name='Biber' />
@@ -224,7 +251,15 @@ export default function OrderPizza({ onSubmit }) {
               <Input type="checkbox" onChange={handleChange} name='Ananas' />
               <Label check>Ananas</Label>  <br />
               <Input type="checkbox" onChange={handleChange} name='Kabak' />
-              <Label check>Kabak</Label>
+              <Label check>Kabak</Label> </div>*/}
+              <div className="material-columns">
+                {malzemeler.map(malzeme => (
+                <div className="material-item" key={malzeme.name}>
+                  <Input type="checkbox" onChange={handleChange} name={malzeme.name} />
+                  <Label check>{malzeme.label}</Label>
+                </div>
+                ))}
+              </div>
               <FormFeedback>{errors.malzemeler}</FormFeedback>
             </FormGroup>
           </section>
@@ -258,7 +293,7 @@ export default function OrderPizza({ onSubmit }) {
           </FormGroup>
           </section>  
       </Form>
-      {/* Ödeme Kısmı */}
+      {/*---------Ödeme Kısmı--------- */}
       <section className='payment-container'>
           <div className="sayac-container">
               <Button type='button' onClick={handleDecrement}>-</Button>
@@ -272,6 +307,7 @@ export default function OrderPizza({ onSubmit }) {
               <Button onClick={handleSubmit} size="lg" type='submit' disabled={!isValid}>SİPARİŞ VER</Button>
             </div>
       </section>
+      <Footer />
       </>
     )
     

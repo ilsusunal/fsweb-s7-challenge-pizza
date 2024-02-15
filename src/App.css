@@ -36,6 +36,10 @@
   padding-bottom: 50px;
   gap: 20px;
 }
+.bej-part-icerik {
+  max-width: 700px;
+  margin: 0 auto;
+}
 .bej-part h2{
   margin-bottom: 20px;
   font-size: 22px;
@@ -44,11 +48,11 @@
 .order-pizza-form {
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  
 }
 .order-pizza-form section{
+  width: 100%;
   max-width: 700px;
   display: flex;
   flex-direction: column;
@@ -56,20 +60,23 @@
   margin-bottom: 20px;
 }
 .order-pizza-form div{
-  padding:0 20px;
-  margin-bottom: 20px;
+  margin: 20px 0;
+  max-width: 700px;
 }
 .pizza-info {
   display: flex;
   justify-content: space-between;
 }
-.form-group-row {
+.order-pizza-form .boyut {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
 }
-.form-group-row .form-check{
-  display: flex;
+.order-pizza-form .boyut .form-group-row {
+  width: calc(50% - 10px); 
+  margin-right: 20px;
 }
+
 .form-select{
   background-color: #FAF7F2;
   border-radius: 20px;
@@ -111,11 +118,31 @@
   border: none;
 }
 
+
+.ekMalzemeler .material-columns {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+
+}
+.ekMalzemeler .material-item {
+  flex-basis: calc(33.33% - 10px);
+  margin-bottom: 10px;
+}
+.ekMalzemeler .material-item input[type="checkbox"] {
+  transform: scale(2); 
+  border: none !important; 
+  background-color: #FAF7F2 !important; 
+}
+
+
 .payment-container{
   display: flex;
   justify-content: space-between;
   border-top: 1px solid #5F5F5F;
-  padding: 50px 400px;
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 50px;
 }
 .sayac-container {
   display: block;
