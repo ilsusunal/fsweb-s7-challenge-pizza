@@ -108,14 +108,20 @@ export default function OrderPizza({ onSubmit }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         const updatedForm = { ...form, miktar: count };
+        
         axios
         .post('https://reqres.in/api/pizza', updatedForm)
         .then(response => {
           onSubmit(response.data);
-          history.push("/siparis-alindi");
+          if (isValid === true) {
+            history.push("/siparis-alindi");
+          }else {
+            throw new Error("Sipariş verileri eksik veya hatalı!")
+          }
         })
         .catch(error => {
-          console.error('HATA:', error);
+          return <Error />;
+
         });
     };
 
