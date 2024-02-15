@@ -113,7 +113,6 @@ export default function OrderPizza({ onSubmit }) {
         .then(response => {
           onSubmit(response.data);
           history.push("/siparis-alindi");
-          //console.log('Sipariş Detayı:', response.data);
         })
         .catch(error => {
           console.error('HATA:', error);
@@ -225,33 +224,6 @@ export default function OrderPizza({ onSubmit }) {
               <FormText htmlFor="ekMalzemeler">
                 En az 4, en fazla 10 malzeme seçebilirsiniz. Malzeme başı 5 tl ek ücret.
               </FormText> <br />
-              {/*<div>
-                <Input type="checkbox" onChange={handleChange} name='Pepperoni' />
-              <Label check>Pepperoni</Label>
-              <Input type="checkbox" onChange={handleChange} name='Sosis' />
-              <Label check>Sosis</Label>
-              <Input type="checkbox" onChange={handleChange} name='Kanada Jambonu' />
-              <Label check>Kanada Jambonu</Label> 
-              <Input type="checkbox" onChange={handleChange} name='Tavuk Izgara' />
-              <Label check>Tavuk Izgara</Label>
-              <Input type="checkbox" onChange={handleChange} name='Soğan' />
-              <Label check>Soğan</Label>
-              <Input type="checkbox" onChange={handleChange} name='Domates' />
-              <Label check>Domates</Label>  
-              <Input type="checkbox" onChange={handleChange} name='Mısır' />
-              <Label check>Mısır</Label>
-              <Input type="checkbox" onChange={handleChange} name='Sucuk' />
-              <Label check>Sucuk</Label>
-              <Input type="checkbox" onChange={handleChange} name='Jalepeno' />
-              <Label check>Jalepeno</Label> 
-              <Input type="checkbox" onChange={handleChange} name='Sarımsak' />
-              <Label check>Sarımsak</Label>
-              <Input type="checkbox" onChange={handleChange} name='Biber' />
-              <Label check>Biber</Label>
-              <Input type="checkbox" onChange={handleChange} name='Ananas' />
-              <Label check>Ananas</Label>  <br />
-              <Input type="checkbox" onChange={handleChange} name='Kabak' />
-              <Label check>Kabak</Label> </div>*/}
               <div data-cy="malzemeler" className="material-columns">
                 {malzemeler.map(malzeme => (
                 <div className="material-item" key={malzeme.name}>

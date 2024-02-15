@@ -8,11 +8,9 @@ import React, { useState} from "react";
 
 function App() {
   const [orderData, setOrderData] = useState(null);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleOrderData = (d) => {
     setOrderData(d);
-    setIsSubmitted(true);
   };
 
   return (
@@ -25,9 +23,7 @@ function App() {
           <OrderPizza onSubmit={handleOrderData}/>
         </Route>
         <Route path="/siparis-alindi">
-        {/*console.log("Rendering Success component. isSubmitted:", isSubmitted)*/}
-        {console.log("AKTARILAN ORDER DATA:", orderData)}
-        {isSubmitted && <Success orderData={orderData} />}
+          <Success orderData={orderData} />
         </Route>
       </Switch>
     </Router>

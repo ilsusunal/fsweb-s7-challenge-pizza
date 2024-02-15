@@ -42,8 +42,8 @@ export default function Success({ orderData }) {
                 </section>
                 <section className='siparis-odeme-info'>
                         <h2>Sipariş Toplamı</h2>
-                        <div><p>Seçimler</p>  <p>{miktar * 5} ₺</p></div>
-                        <div><p>Toplam</p>  <p>{(85.5 * miktar) + (miktar * 5)} ₺</p></div>
+                        <div><p>Seçimler</p>  <p>{malzemeler.length * 5} ₺</p></div>
+                        <div><p>Toplam</p>  <p>{(85.5 * miktar) + (malzemeler.length * miktar)} ₺</p></div>
                 </section>
                 <button id='success-buton' onClick={handleButton}>Anasayfaya Dön</button>
             </main>
