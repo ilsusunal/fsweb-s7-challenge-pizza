@@ -135,36 +135,36 @@ export default function OrderPizza({ onSubmit }) {
                 <Input
                   name="boyut"
                   type="radio"
-                  value="Küçük"
+                  value="S"
                   onChange={handleChange} 
                   data-cy="pizza-boyut-kucuk" />
                 {' '}
                 <Label check>
-                  Küçük
+                  S
                 </Label>
               </FormGroup>
               <FormGroup check>
                 <Input
                   name="boyut"
                   type="radio"
-                  value="Orta"
+                  value="M"
                   onChange={handleChange}
                   data-cy="pizza-boyut-orta" />
                 {' '}
                 <Label check>
-                  Orta
+                  M
                 </Label>
               </FormGroup>
               <FormGroup check>
                 <Input
                   name="boyut"
                   type="radio"
-                  value="Büyük"
+                  value="L"
                   onChange={handleChange}
                   data-cy="pizza-boyut-buyuk" />
                 {' '}
                 <Label check>
-                  Büyük
+                  L
                 </Label> {errors.boyut && <FormFeedback>{errorMessages.boyut}</FormFeedback>}
               </FormGroup>
             </FormGroup>

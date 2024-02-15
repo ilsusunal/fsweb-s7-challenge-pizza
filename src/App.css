@@ -241,7 +241,9 @@ button:hover {
   flex-direction: column;
   align-items: flex-start;
   margin-top: 50px;
-  width: 300px;
+  max-width: 400px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid white;
 }
 .siparis-alindi-info h2:first-child{
   margin-bottom: 100px;
@@ -266,22 +268,21 @@ button:hover {
   font-weight: 400;
 }
 
-.siparis-odeme-container{
-  border-top: 1px solid white;
-  
-}
 .siparis-odeme-info{
   margin: 50px 0px;
   max-width: 700px;
-  padding: 30px;
+  padding: 50px;
   border-radius: 4px;
   border: 1px solid white;
   color:white;
   background-color: #CE2829;
   font-size: 18px;
-  font-weight: 600;
 }
-.siparis-odeme-info h3{
+.siparis-odeme-info div{
+  display: flex;
+  justify-content: space-between;
+}
+.siparis-odeme-info h2{
   margin-bottom: 40px;
 }
 
