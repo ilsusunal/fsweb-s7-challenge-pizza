@@ -1,19 +1,32 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, useHistory } from "react-router-dom";
 import './App.css'
 
 import OrderPizza from "./components/OrderPizza";
 import MainPage from './components/MainPage';
 import Success from "./components/Success";
+import React, { useState } from "react";
 
 function App() {
-  
+  const [orderData, setOrderData] = useState(null);
+  const history = useHistory();
+  const handleOrderData = (d) => {
+    setOrderData(d);
+    
+    console.log("DATALAR APP DOSYASINA GEÇMİŞ",d);
+  };
 
   return (
     <Router>
-      <Switch>
-        <Route path="/siparis-olustur" component={OrderPizza} />
-        <Route exact path="/" component={MainPage} />
-        <Route path="/siparis-alindi" component={Success}/>
+      <Switch> 
+        <Route exact path="/"  >
+          <MainPage />
+        </Route>
+        <Route path="/siparis-olustur"  >
+          <OrderPizza onSubmit={handleOrderData}/>
+        </Route>
+        <Route path="/siparis-alindi">
+        <Success orderData={orderData}/>
+        </Route>
       </Switch>
     </Router>
     );

@@ -3,21 +3,21 @@ import { useHistory } from 'react-router-dom';
 import React from 'react';
 
 
-export default function Success (props) {
-    /* Data aktarılmazsa error mesajı ver. */
-    if (!props.location.state || !props.location.state.formData) {
-        return <p>Bir hata oluştu! Lütfen tekrar deneyin.</p>;
-    }
+export default function Success ({ orderData }) {
+    
 
     /* Destructuring formData */
-    const {formData, count, form} = props.location.state;
-
+    const {formData, count, form} = orderData;
     const history = useHistory();
-
     const handleButton = () => {
         history.push("/")
     }
-
+    /* Data aktarılmazsa error mesajı ver. */
+    if (!orderData || !orderData.formData || !orderData.count || !orderData.form) {
+        console.log(orderData);
+        return <p>Sipariş verileri eksik veya hatalı.</p>;
+        
+    };
     return (
         <>
         <header className="success-page">

@@ -16,6 +16,8 @@
   display: flex;
   align-items: center;
   margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 500;
 }
 .nav-menu a {
   text-decoration: none;
@@ -23,36 +25,44 @@
   margin: 50px 0;
 }
 .nav-menu a:hover{
-  font-weight: bold;
   color: #CE2829;
 }
 
+.bej-part{
+  background-color: #FAF7F2;
+  display: flex;
+  flex-direction: column;
+  padding: 0 400px;
+  padding-bottom: 50px;
+  gap: 20px;
+}
+.bej-part h2{
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
 .order-pizza-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  
 }
 .order-pizza-form section{
-  max-width:700px;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  margin-bottom: 20px;
 }
-.order-pizza-form h2{
-  margin-bottom: 40px;
-}
-.order-pizza-form div {
+.order-pizza-form div{
+  padding:0 20px;
   margin-bottom: 20px;
 }
 .pizza-info {
   display: flex;
   justify-content: space-between;
 }
-.bej-part{
-  background-color: #FAF7F2;
-  width: 100%;
-}
-
-
-
-
 .form-group-row {
   display: flex;
   justify-content: space-between;
@@ -100,16 +110,12 @@
   padding: 20px;
   border: none;
 }
-.ekMalzemeler {
-  align-items: center;
-}
 
 .payment-container{
   display: flex;
   justify-content: space-between;
-  width: 100%;
   border-top: 1px solid #5F5F5F;
-  padding-top: 2rem;
+  padding: 50px 400px;
 }
 .sayac-container {
   display: block;
