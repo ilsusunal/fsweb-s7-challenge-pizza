@@ -252,7 +252,7 @@ export default function OrderPizza({ onSubmit }) {
               <Label check>Ananas</Label>  <br />
               <Input type="checkbox" onChange={handleChange} name='Kabak' />
               <Label check>Kabak</Label> </div>*/}
-              <div className="material-columns">
+              <div data-cy="malzemeler" className="material-columns">
                 {malzemeler.map(malzeme => (
                 <div className="material-item" key={malzeme.name}>
                   <Input type="checkbox" onChange={handleChange} name={malzeme.name} />
@@ -276,7 +276,8 @@ export default function OrderPizza({ onSubmit }) {
               type="text"
               value={form.isimSoyisim}
               onChange={handleChange}
-              invalid={errors.isimSoyisim !== ""} />
+              invalid={errors.isimSoyisim !== ""} 
+              data-cy="isim-soyisim"/>
             <FormFeedback>{errors.isimSoyisim}</FormFeedback>
           </FormGroup> 
           </section>
@@ -289,7 +290,8 @@ export default function OrderPizza({ onSubmit }) {
               name="siparisNotu"
               placeholder="Siparişine eklemek istediğin bir not var mı?"
               type="text"
-              onChange={handleChange} />
+              onChange={handleChange}
+              data-cy="siparis-notu" />
           </FormGroup>
           </section>  
       </Form>
