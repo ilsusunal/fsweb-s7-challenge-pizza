@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from "axios";
 import { Form, FormGroup, Label, Input, Button, FormText, FormFeedback } from 'reactstrap';
-import LogoSVG  from "../../Assets/mile1-assets/logo.svg";
+import LogoSVG  from "../../public/Assets/mile1-assets/logo.svg";
 import Footer from './Footer';
 
 /* Ürün bilgilerini belirledim */

@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoFooterSVG from "../../Assets/mile2-aseets/footer/logo-footer.svg";
+import LogoFooterSVG from "../../public/Assets/mile2-aseets/footer/logo-footer.svg";
 
 export default function Footer() {
     return(

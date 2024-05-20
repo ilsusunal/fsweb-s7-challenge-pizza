@@ -1,4 +1,4 @@
-import LogoSVG  from "../../Assets/mile1-assets/logo.svg";
+import LogoSVG  from "../../public/Assets/mile1-assets/logo.svg";
 import { useHistory } from 'react-router-dom';
 import React from 'react';
 

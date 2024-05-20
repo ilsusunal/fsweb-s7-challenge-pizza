@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import LogoSVG  from "../../Assets/mile1-assets/logo.svg"; //Logo (teknolojik yemekler)
-import LogoFooterSVG from "../../Assets/mile2-aseets/footer/logo-footer.svg";
+import LogoSVG  from "../../public/Assets/mile1-assets/logo.svg"; //Logo (teknolojik yemekler)
+import LogoFooterSVG from "../../public/Assets/mile2-aseets/footer/logo-footer.svg";
 import { Button, Card, CardImg, CardImgOverlay, CardTitle, CardText } from 'reactstrap';
 import Footer from './Footer';
 
